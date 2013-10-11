@@ -1,2 +1,262 @@
 AdvWebDev2013Project
 ====================
+
+* "Devise":https://github.com/plataformatec/devise gives you ready-made authentication and user management.
+* "CanCan":https://github.com/ryanb/cancan provides authorization for administrator access.
+* "Twitter Bootstrap":http://twitter.github.com/bootstrap/ is a front-end framework for CSS styling.
+
+
+
+h3. Edit the README
+
+If you're storing the app in a GitHub repository, please edit the README files to add a description of the app and your contact info. If you don't change the README, people will think I am the author of your version of the application.
+
+h2. Getting Started
+
+See the article "Installing Rails":http://railsapps.github.io/installing-rails.html to make sure your development environment is prepared properly.
+
+h3. Use RVM
+
+I recommend using "rvm":https://rvm.io/, the Ruby Version Manager, to create a project-specific gemset for the application. If you generate the application with the Rails Composer tool, you can create a project-specific gemset.
+
+h3. Install the Required Gems
+
+Check the Gemfile to see which gems are used by this application.
+
+If you used the "Rails Composer":http://railsapps.github.io/rails-composer/ tool to generate the example app, the application template script has already run the @bundle install@ command.
+
+If not, you should run the @bundle install@ command to install the required gems on your computer:
+
+<pre>
+$ bundle install
+</pre>
+
+You can check which gems are installed on your computer with:
+
+<pre>
+$ gem list
+</pre>
+
+Keep in mind that you have installed these gems locally. When you deploy the app to another server, the same gems (and versions) must be available.
+
+I recommend using "rvm":https://rvm.io/, the Ruby Version Manager, to create a project-specific gemset for the application. See the article "Installing Rails":http://railsapps.github.io/installing-rails.html.
+
+h3. Configure Email
+
+This example application doesn't send email messages. However, if you want your application to send email messages (for example, if you plan to install the Devise @:confirmable@ module) you must configure the application for your email account. See the article "Send Email with Rails":http://railsapps.github.io/rails-send-email.html.
+
+h3. Configure Devise
+
+You can modify the configuration file for Devise if you want to use something other than the defaults:
+
+* *config/initializers/devise.rb*
+
+h3. Configuration File
+
+The application uses the "figaro gem":https://github.com/laserlemon/figaro to set environment variables. Credentials for your administrator account and email account are set in the *config/application.yml* file. The *.gitignore* file prevents the *config/application.yml* file from being saved in the git repository so your credentials are kept private. See the article "Rails Environment Variables":http://railsapps.github.io/rails-environment-variables.html for more information.
+
+Modify the file *config/application.yml*:
+
+<pre>
+# Add account credentials and API keys here.
+# See http://railsapps.github.io/rails-environment-variables.html
+# This file should be listed in .gitignore to keep your settings secret!
+# Each entry sets a local environment variable and overrides ENV variables in the Unix shell.
+# For example, setting:
+# GMAIL_USERNAME: Your_Gmail_Username
+# makes 'Your_Gmail_Username' available as ENV["GMAIL_USERNAME"]
+# Add application configuration variables here, as shown below.
+#
+GMAIL_USERNAME: Your_Username
+GMAIL_PASSWORD: Your_Password
+ADMIN_NAME: First User
+ADMIN_EMAIL: user@example.com
+ADMIN_PASSWORD: changeme
+ROLES: [admin, user, VIP]
+</pre>
+
+Set the user name and password needed for the application to send email.
+
+If you wish, set your name, email address, and password for an administrator's account. If you prefer, you can use the default to sign in to the application and edit the account after deployment. It is always a good idea to change the administrator's password after the application is deployed.
+
+Specify roles in the configuration file. You will need an "admin" role. Change the "user" and "VIP" roles as you wish.
+
+All configuration values in the *config/application.yml* file are available anywhere in the application as environment variables. For example, @ENV["GMAIL_USERNAME"]@ will return the string "Your_Username".
+
+If you prefer, you can delete the *config/application.yml* file and set each value as an environment variable in the Unix shell.
+
+h3. Set Up a Database Seed File
+
+The *db/seeds.rb* file initializes the database with default values. To keep some data private, and consolidate configuration settings in a single location, we use the *config/application.yml* file to set environment variables and then use the environment variables in the *db/seeds.rb* file.
+
+<pre>
+puts 'ROLES'
+YAML.load(ENV['ROLES']).each do |role|
+  Role.find_or_create_by_name({ :name => role }, :without_protection => true)
+  puts 'role: ' << role
+end
+puts 'DEFAULT USERS'
+user = User.find_or_create_by_email :name => ENV['ADMIN_NAME'].dup, :email => ENV['ADMIN_EMAIL'].dup, :password => ENV['ADMIN_PASSWORD'].dup, :password_confirmation => ENV['ADMIN_PASSWORD'].dup
+puts 'user: ' << user.name
+user.add_role :admin
+</pre>
+
+You can change the administrator name, email, and password in this file but it is better to make the changes in the *config/application.yml* file to keep the credentials private. If you decide to include your private password in the *db/seeds.rb* file, be sure to add the filename to your *.gitignore* file so that your password doesn't become available in your public GitHub repository.
+
+Note that it's not necessary to personalize the *db/seeds.rb* file before you deploy your app. You can deploy the app with an example user and then use the application's "Edit Account" feature to change name, email address, and password after you log in. Use this feature to log in as an administrator and change the user name and password to your own.
+
+The *db/seeds.rb* file reads a list of roles from the *config/application.yml* file and adds the roles to the database. In fact, any new role can be added to the roles datatable with a statement such @user.add_role :superhero@. Setting the roles in the *db/seeds.rb* file simply makes sure each role is listed and available should a user wish to change roles.
+
+You may wish to include additional sample users:
+
+<pre>
+user2 = User.find_or_create_by_email :name => 'Second User', :email => 'user2@example.com', :password => 'changeme', :password_confirmation => 'changeme'
+puts 'user: ' << user2.name
+user2.add_role :VIP
+</pre>
+
+This will add a second user to the database with a "VIP" role.
+
+h3. Set the Database
+
+Prepare the database and add the default user to the database by running the commands:
+
+<pre>
+$ rake db:migrate
+$ rake db:seed
+</pre>
+
+Use @rake db:reset@ if you want to empty and reseed the database.
+
+Set the database for running tests:
+
+<pre>
+$ rake db:test:prepare
+</pre>
+
+If you’re not using "rvm":https://rvm.io/, the Ruby Version Manager, you should preface each rake command with @bundle exec@. You don’t need to use @bundle exec@ if you are using rvm version 1.11.0 or newer.
+
+h3. Change your Application's Secret Token
+
+If you've used the Rails Composer tool to generate the application, the application's secret token will be unique, just as with any Rails application generated with the @rails new@ command.
+
+However, if you've cloned the application directly from GitHub, it is crucial that you change the application's secret token before deploying your application in production mode. Otherwise, people could change their session information, and potentially access your site without permission. Your secret token should be at least 30 characters long and completely random.
+
+Get a unique secret token:
+
+<pre>
+rake secret
+</pre>
+
+Edit your *config/initializers/secret_token.rb* file to add the secret token:
+
+<pre>
+Rails3BootstrapDeviseCancan::Application.config.secret_token = '...some really long, random string...'
+</pre>
+
+h2. Test the App
+
+You can check that your application runs properly by entering the command:
+
+@$ rails server@
+
+To see your application in action, open a browser window and navigate to "http://localhost:3000/":http://localhost:3000. You should see the default user listed on the home page. When you click on the user's name, you should be required to log in before seeing the user's detail page.
+
+If you are using the default values from the *config/application.yml* file, you can sign in as the administrator using:
+
+* email: user@example.com
+* password: changeme
+
+You'll see a navigation link for Admin. Clicking the link will display a page with a list of users at
+"http://localhost:3000/users":http://localhost:3000/users.
+
+If you've added a second user, (unless you've changed it) use
+
+* email: user2@example.com
+* password: changeme
+
+The second user will not see the Admin navigation link and will not be able to access the page at
+"http://localhost:3000/users":http://localhost:3000/users.
+
+Stop the server with Control-C.
+
+If you test the app by starting the web server and then leave the server running while you install new gems, you’ll have to restart the server to see any changes. The same is true for changes to configuration files in the config folder. This can be confusing to new Rails developers because you can change files in the app folders without restarting the server. Stop the server each time after testing and you will avoid this issue.
+
+h2. Deploy to Heroku
+
+For your convenience, here is a "Tutorial for Rails on Heroku":http://railsapps.github.io/rails-heroku-tutorial.html. Heroku provides low cost, easily configured Rails application hosting.
+
+Be sure to set up SSL before you make your application available in production. See the "Heroku documentation on SSL":https://devcenter.heroku.com/articles/ssl.
+
+Add this configuration parameter to the *config/application.rb* file:
+
+<pre>
+# Heroku requires this to be false
+config.assets.initialize_on_precompile=false
+</pre>
+
+Then precompile assets, commit to git, and push to Heroku:
+
+<pre>
+$ rake assets:precompile
+$ git add -A
+$ git commit -m "assets compiled for Heroku"
+$ git push heroku master
+</pre>
+
+You'll need to set the configuration values from the *config/application.yml* file as Heroku environment variables. See the article "Rails Environment Variables":http://railsapps.github.io/rails-environment-variables.html for more information.
+
+With the figaro gem, just run:
+
+<pre>
+rake figaro:heroku
+</pre>
+
+Alternatively, you can set Heroku environment variables directly with @heroku config:add@.
+
+<pre>
+$ heroku config:add GMAIL_USERNAME='myname@gmail.com' GMAIL_PASSWORD='secret'
+$ heroku config:add 'ROLES=[admin, user, VIP]'
+$ heroku config:add ADMIN_NAME='First User' ADMIN_EMAIL='user@example.com' ADMIN_PASSWORD='changeme'
+</pre>
+
+Complete Heroku deployment with:
+
+<pre>
+$ heroku run rake db:migrate
+$ heroku run rake db:seed
+</pre>
+
+See the "Tutorial for Rails on Heroku":http://railsapps.github.io/rails-heroku-tutorial.html for details.
+
+h2. Customizing
+
+This application provides no useful functionality apart from demonstrating Devise with CanCan and Twitter Bootstrap working together on Rails 3. Add any models, controllers, and views that you need.
+
+For more complex applications that use Devise, CanCan, and Twitter Bootstrap, see:
+
+* "rails-stripe-membership-saas":http://railsapps.github.io/rails-stripe-membership-saas example and tutorial
+* "rails-prelaunch-signup":https://github.com/RailsApps/rails-prelaunch-signup example and tutorial
+
+h2. Testing
+
+The example application contains a suite of RSpec unit tests and Cucumber scenarios and step definitions.
+
+After installing the application, run @rake -T@ to check that rake tasks for RSpec and Cucumber are available.
+
+Run @rake spec@ to run RSpec tests.
+
+Run @rake cucumber@ (or more simply, @cucumber@) to run Cucumber scenarios.
+
+Please send the author a message, create an issue, or submit a pull request if you can contribute improved RSpec or Cucumber files.
+
+h2. Troubleshooting
+
+Problems? Check the "issues":https://github.com/RailsApps/rails3-bootstrap-devise-cancan/issues.
+
+h2. Documentation
+
+The "tutorial":https://tutorials.railsapps.org/rails3-bootstrap-devise-cancan provides additional documentation.
+
+For a Devise introduction, Ryan Bates offers a "Railscast on Devise":http://railscasts.com/episodes/209-introducing-devise. You can find documentation for "Devise":https://github.com/plataformatec/devise at "https://github.com/plataformatec/devise":https://github.com/plataformatec/devise. There is an active "Devise mailing list":http://groups.google.com/group/plataformatec-devise and you can submit "Devise issues":https://github.com/plataformatec/devise/issues at GitHub.
+
