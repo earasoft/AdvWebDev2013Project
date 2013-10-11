@@ -1,5 +1,14 @@
-AdvWebDev2013Project
-====================
+h1. First Steps
+
+You will have to run the following commands.
+*sudo bundle install
+*setup the application.yml file
+*rake db:migrate
+*rake db:seed
+*rails s
+
+
+h2. AdvWebDev2013Project
 
 * "Devise":https://github.com/plataformatec/devise gives you ready-made authentication and user management.
 * "CanCan":https://github.com/ryanb/cancan provides authorization for administrator access.
