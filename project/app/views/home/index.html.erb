@@ -3,3 +3,6 @@
 <% @users.each do |user| %>
   <p>User: <%=link_to user.name, user %></p>
 <% end %>
+
+<%= link_to "View Posts", controller: "posts" %><br>
+<%= link_to 'New post', new_post_path %>
