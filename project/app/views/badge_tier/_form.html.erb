@@ -1,0 +1,26 @@
+<%= form_for @badge_tier do |f| %>
+    <% if @badge_tier.errors.any? %>
+        <div id="errorExplanation">
+          <h2><%= pluralize(@bagde_tier.errors.count, "error") %> prohibited
+            this badge from being saved:</h2>
+          <ul>
+            <% @badge_tier.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+    <p>
+      <%= f.label :tier_name %><br>
+      <%= f.text_field :tier_name %>
+    </p>
+
+    <p>
+      <%= f.label :tier_description %><br>
+      <%= f.text_area :tier_description %>
+    </p>
+
+    <p>
+      <%= f.submit %>
+    </p>
+<% end %>
