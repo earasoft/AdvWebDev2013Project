@@ -19,6 +19,9 @@ Rails3BootstrapDeviseCancan::Application.routes.draw do
     root :to => 'home#index'
   end
   root :to => "home#index"
+
+  get "home/user_directory"
+
   devise_for :users
   resources :users, :posts do
     resources :comments
