@@ -16,7 +16,7 @@ Rails3BootstrapDeviseCancan::Application.routes.draw do
   get "badge/delete"
 
   authenticated :user do
-    root :to => 'home#index'
+    root :to => 'posts#index'
   end
   root :to => "home#index"
 
