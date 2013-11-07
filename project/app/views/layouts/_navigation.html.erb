@@ -29,4 +29,16 @@
   <li>
     <%= link_to 'User Directory', home_user_directory_path %>
   </li>
+
+
+  <% if user_signed_in? %>
+      <li>
+        <a href="#"><b><%=current_user.email %></b> </a>
+      </li>
+        <% else %>
+      <li>
+        <a href="#"><b>Not Signed in </b></a>
+      </li>
+
+  <% end %>
 </ul>

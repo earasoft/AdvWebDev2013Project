@@ -18,7 +18,7 @@ Rails3BootstrapDeviseCancan::Application.routes.draw do
   authenticated :user do
     root :to => 'posts#index'
   end
-  root :to => "home#index"
+  root :to => "posts#index"
 
   get "home/user_directory"
 

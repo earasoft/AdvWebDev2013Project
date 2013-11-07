@@ -25,7 +25,13 @@
 <%= form_for([@post, @post.comments.build]) do |f| %>
     <p>
       <%= f.label :commenter %><br />
-      <%= f.text_field :commenter %>
+
+      <% if user_signed_in? %>
+          <%= f.text_field :commenter, :value => current_user.email, :readonly=>true%>
+    <% else %>
+        <%= f.text_field :commenter %>
+    <% end %>
+
     </p>
     <p>
       <%= f.label :body %><br />
