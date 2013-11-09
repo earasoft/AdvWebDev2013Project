@@ -8,12 +8,10 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :role_ids, :as => :admin
-  attr_accessible :name, :email, :password, :password_confirmation, :remember_me
+  attr_accessible :username, :name, :email, :password, :password_confirmation, :remember_me
 
-  validates :email, uniqueness: { case_sensitive: false }
-  validates :name, :email, :password_confirmation, presence: true
-
-
+  validates :username, uniqueness: { case_sensitive: false }
+  validates :name, :email, :password, :password_confirmation, presence: true
 
   has_many :badges
 end
