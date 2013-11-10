@@ -28,7 +28,7 @@
 /project.redcar/
 /project.sass-cache
 /project/config/config.yml
-/project/config/database.yml
+#/project/config/database.yml
 /project/coverage.data
 /project/coverage/
 /project/db/*.javadb/
@@ -74,4 +74,4 @@
 **.swp
 
 # Ignore application configuration
-/project/config/application.yml
+#/project/config/application.yml
