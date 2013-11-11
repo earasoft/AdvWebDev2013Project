@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131109004247) do
+ActiveRecord::Schema.define(:version => 20131110234012) do
 
   create_table "comments", :force => true do |t|
     t.string   "commenter"
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(:version => 20131109004247) do
     t.datetime "updated_at",                             :null => false
     t.string   "name"
     t.string   "username"
+    t.string   "avatar"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
