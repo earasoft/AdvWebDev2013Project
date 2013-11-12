@@ -13,6 +13,21 @@
 
 ActiveRecord::Schema.define(:version => 20131110234012) do
 
+  create_table "badge_tiers", :force => true do |t|
+    t.string   "tier_name"
+    t.string   "tier_description"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  create_table "badges", :force => true do |t|
+    t.string   "title"
+    t.string   "category"
+    t.string   "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
   create_table "comments", :force => true do |t|
     t.string   "commenter"
     t.text     "body"
