@@ -16,6 +16,7 @@ gem 'rolify'
 gem 'simple_form'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'merit'
 
 group :development do
   gem 'better_errors'
