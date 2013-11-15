@@ -1,6 +1,17 @@
 <h3>User Directory</h3>
-<% @users.each do |user| %>
-    <p>User: <%=link_to user.username, user %></p>
-    <%= image_tag(user.avatar.thumb.url) if user.avatar? %>
-    <hr>
-<% end %>
+<table class="table table-striped">
+  <thead>
+      <tr>
+        <th>Picture</th>
+        <th>Username</th>
+      </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td width="25%"><%= (image_tag(user.avatar.thumb.url, :class => 'img-polaroid')) if user.avatar? %></td>
+        <td width="75%"><%=link_to user.username, user %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
