@@ -1,42 +1,76 @@
-<%= link_to "COSC617 Group Project", root_path, :class => 'brand' %>
-<ul class="nav">
-  <% if user_signed_in? %>
+
+
+<div class="navbar navbar-fixed-top">
+  <nav class="navbar-inner">
+
+
+
+<header class="navbar navbar-fixed-top bs-docs-nav" role="banner">
+
+<div class="container">
+
+
+  <%= link_to "COSC617 Group Project", root_path, :class => 'brand' %>
+  <ul class="nav navbar-nav">
     <li>
-    <%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %>
+      <%= link_to 'Home', root_path %>
     </li>
-  <% else %>
-    <li>
-    <%= link_to 'Login', new_user_session_path %>
-    </li>
-  <% end %>
-  <% if user_signed_in? %>
-    <li>
-    <%= link_to 'Edit account', edit_user_registration_path %>
-    </li>
-    <% if current_user.has_role? :admin %>
-      <li>
-      <%= link_to 'Admin', users_path %>
-      </li>
+
+    <% if user_signed_in? %>
+        <li>
+          <%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %>
+        </li>
+    <% else %>
+        <li>
+          <%= link_to 'Login', new_user_session_path %>
+        </li>
     <% end %>
+    <% if user_signed_in? %>
+        <li>
+          <%= link_to 'Edit account', edit_user_registration_path %>
+        </li>
+        <% if current_user.has_role? :admin %>
+            <li>
+              <%= link_to 'Admin', users_path %>
+            </li>
+        <% end %>
 
-  <% else %>
+    <% else %>
+        <li>
+          <%= link_to 'Sign up', new_user_registration_path %>
+        </li>
+    <% end %>
     <li>
-    <%= link_to 'Sign up', new_user_registration_path %>
+      <%= link_to 'User Directory', home_user_directory_path %>
     </li>
-  <% end %>
-  <li>
-    <%= link_to 'User Directory', home_user_directory_path %>
-  </li>
 
 
-  <% if user_signed_in? %>
-      <li>
-        <%=link_to current_user.username, current_user %>
-      </li>
-        <% else %>
-      <li>
-        <a href="#"><b>Not Signed in </b></a>
-      </li>
 
-  <% end %>
-</ul>
+  </ul>
+
+  <ul class="nav navbar-nav navbar-right">
+    <% if user_signed_in? %>
+        <li>
+          <%=link_to current_user.username, current_user %>
+        </li>
+    <% else %>
+        <li>
+          <%= link_to 'Currently Not Log in', user_registration_url%>
+        </li>
+
+    <% end %>
+  </ul>
+
+
+
+
+
+
+
+</div>
+</header>
+
+
+
+  </nav>
+</div>
