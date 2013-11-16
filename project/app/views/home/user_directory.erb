@@ -9,8 +9,16 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td width="25%"><%= (image_tag(user.avatar.thumb.url, :class => 'img-polaroid')) if user.avatar? %></td>
-        <td width="75%"><%=link_to user.username, user %></td>
+        <td width="25%">
+          <%= (image_tag(user.avatar.thumb.url, :class => 'img-polaroid')) if user.avatar? %>
+        </td>
+        <td width="75%">
+          <%=link_to user.username, user %>
+          <% if user.uid %>
+                 <br>Using oAuth2
+
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
