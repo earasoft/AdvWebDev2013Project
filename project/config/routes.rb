@@ -6,7 +6,8 @@ Rails3BootstrapDeviseCancan::Application.routes.draw do
 
   get "home/user_directory"
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks",
+                                       :registrations => "users/registrations"}
 
   resources :users, :posts, :badge_tiers do
     resources :comments

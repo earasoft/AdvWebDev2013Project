@@ -15,7 +15,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find_by_id(params[:id])
+    @post = Post.find_by_unique_id(params[:id])
     if @post
       @post
     else
@@ -28,7 +28,7 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find_by_id(params[:id])
+    @post = Post.find_by_unique_id(params[:id])
     if @post
       @post
     else
@@ -38,7 +38,7 @@ class PostsController < ApplicationController
   end
 
   def update
-    @post = Post.find_by_id(params[:id])
+    @post = Post.find_by_unique_id(params[:id])
     if @post
       @post
     else
@@ -53,7 +53,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find_by_id(params[:id])
+    @post = Post.find_by_unique_id(params[:id])
     if @post
       @post
     else

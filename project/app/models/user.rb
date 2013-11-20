@@ -1,7 +1,10 @@
 class User < ActiveRecord::Base
   rolify
 
-  before_save :generate_unique_id
+  after_create :generate_unique_id
+
+  set_primary_key :unique_id
+
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
@@ -50,9 +53,7 @@ class User < ActiveRecord::Base
              end
   end
 
-  def generate_unique_id
-    self.unique_id = SecureRandom.uuid # => "72569edd-1841-4fd9-af05-edf66a58b74b"
-  end
+
 
   def self.find_for_google_oauth2(access_token, signed_in_resource=nil)
     data = access_token.info
@@ -75,4 +76,12 @@ class User < ActiveRecord::Base
       end
     end
   end
+
+
+  private
+
+  def generate_unique_id
+    self.unique_id = SecureRandom.uuid # => "72569edd-1841-4fd9-af05-edf66a58b74b"
+  end
+
 end
