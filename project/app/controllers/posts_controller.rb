@@ -15,7 +15,12 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
+    @post = Post.find_by_id(params[:id])
+    if @post
+      @post
+    else
+      redirect_to root_path, :flash => { :notice => 'ERROR - Can not find the post' }
+    end
   end
 
   def index
@@ -23,11 +28,22 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:id])
+    @post = Post.find_by_id(params[:id])
+    if @post
+      @post
+    else
+      redirect_to root_path, :flash => { :notice => 'ERROR - Can not find the post' }
+    end
+
   end
 
   def update
-    @post = Post.find(params[:id])
+    @post = Post.find_by_id(params[:id])
+    if @post
+      @post
+    else
+      redirect_to root_path, :flash => { :notice => 'ERROR - Can not find the post' }
+    end
 
     if @post.update_attributes(params[:post])
       redirect_to @post
@@ -37,7 +53,13 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id])
+    @post = Post.find_by_id(params[:id])
+    if @post
+      @post
+    else
+      redirect_to root_path, :flash => { :notice => 'ERROR - Can not find the post' }
+    end
+
     @post.destroy
 
     redirect_to posts_path

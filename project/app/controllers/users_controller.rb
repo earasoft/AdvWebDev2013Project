@@ -7,12 +7,24 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find_by_id(params[:id])
+    if @user
+      @user
+    else
+      redirect_to root_path, :flash => { :notice => 'ERROR - Can not find the user' }
+    end
   end
   
   def update
     authorize! :update, @user, :message => 'Not authorized as an administrator.'
-    @user = User.find(params[:id])
+
+    @user = User.find_by_id(params[:id])
+    if @user
+      @user
+    else
+      redirect_to root_path, :flash => { :notice => 'ERROR - Can not find the user' }
+    end
+
     if @user.update_attributes(params[:user], :as => :admin)
       redirect_to users_path, :notice => "User updated."
     else
@@ -22,7 +34,14 @@ class UsersController < ApplicationController
     
   def destroy
     authorize! :destroy, @user, :message => 'Not authorized as an administrator.'
-    user = User.find(params[:id])
+
+    @user = User.find_by_id(params[:id])
+    if @user
+      @user
+    else
+      redirect_to root_path, :flash => { :notice => 'ERROR - Can not find the user' }
+    end
+
     unless user == current_user
       user.destroy
       redirect_to users_path, :notice => "User deleted."
