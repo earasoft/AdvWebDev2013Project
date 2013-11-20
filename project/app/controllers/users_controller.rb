@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by_id(params[:id])
+    @user = User.find_by_unique_id(params[:id])
     if @user
       @user
     else
@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   def update
     authorize! :update, @user, :message => 'Not authorized as an administrator.'
 
-    @user = User.find_by_id(params[:id])
+    @user = User.find_by_unique_id(params[:id])
     if @user
       @user
     else
@@ -35,7 +35,7 @@ class UsersController < ApplicationController
   def destroy
     authorize! :destroy, @user, :message => 'Not authorized as an administrator.'
 
-    @user = User.find_by_id(params[:id])
+    @user = User.find_by_unique_id(params[:id])
     if @user
       @user
     else

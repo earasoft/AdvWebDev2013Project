@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
   rolify
+
+  before_save :generate_unique_id
+
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
@@ -45,6 +48,10 @@ class User < ActiveRecord::Base
             clean_up_passwords
             result
              end
+  end
+
+  def generate_unique_id
+    self.unique_id = SecureRandom.uuid # => "72569edd-1841-4fd9-af05-edf66a58b74b"
   end
 
   def self.find_for_google_oauth2(access_token, signed_in_resource=nil)

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131115153652) do
+ActiveRecord::Schema.define(:version => 20131120164141) do
 
   create_table "comments", :force => true do |t|
     t.string   "commenter"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20131115153652) do
     t.text     "text"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "unique_id"
   end
 
   create_table "roles", :force => true do |t|
@@ -59,6 +60,7 @@ ActiveRecord::Schema.define(:version => 20131115153652) do
     t.string   "avatar"
     t.string   "provider"
     t.string   "uid"
+    t.string   "unique_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
