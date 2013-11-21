@@ -1,6 +1,6 @@
 <h1>Listing posts</h1>
 
-<table cellpadding = "20">
+<table cellpadding = "20" id="posts">
   <tr>
     <th>Title</th>
     <th>Text</th>
@@ -9,7 +9,7 @@
   </tr>
 
   <% @posts.each do |post| %>
-      <tr>
+      <tr id=<%= post.unique_id %>>
         <td><%= post.title %></td>
         <td><%= post.text %></td>
         <td><%= link_to 'Show', post %></td>

@@ -1,5 +1,5 @@
 <h3>User Directory</h3>
-<table class="table table-striped">
+<table class="table table-striped" id="users">
   <thead>
       <tr>
         <th>Picture</th>
@@ -8,7 +8,7 @@
   </thead>
   <tbody>
     <% @users.each do |user| %>
-      <tr>
+      <tr id=<%=user.unique_id%>>
         <td width="25%">
           <%= (image_tag(user.avatar.thumb.url, :class => 'img-polaroid')) if user.avatar? %>
         </td>
