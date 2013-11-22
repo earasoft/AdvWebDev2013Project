@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   def create
-    @post = Post.find_by_id(params[:post_id])
+    @post = Post.find_by_unique_id(params[:post_id])
     if @post
       @post
       @comment = @post.comments.create(params[:comment])

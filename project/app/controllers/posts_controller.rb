@@ -17,9 +17,20 @@ class PostsController < ApplicationController
   def show
     @post = Post.find_by_unique_id(params[:id])
     if @post
+
       @post
+
+      respond_to do |format|
+        format.html { @post }
+        msg = { :status => "ok", :message =>  @post }
+        format.json { render json: msg, :status => :ok }
+      end
     else
-      redirect_to root_path, :flash => { :notice => 'ERROR - Can not find the post' }
+      respond_to do |format|
+        format.html { redirect_to root_path, :flash => { :notice => 'ERROR - Can not find the post' } }
+        msg = { :status => :unprocessable_entity, :message =>  'ERROR - Can not find the post'  }
+        format.json { render json: msg, status: :unprocessable_entity}
+      end
     end
   end
 
