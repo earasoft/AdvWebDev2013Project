@@ -23,3 +23,13 @@
   -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
   box-shadow: 0 1px 2px rgba(0,0,0,.15);
 }
+
+
+label.error {
+  color: #FB3A3A;
+  display: inline-block;
+  margin: 4px 0 5px 125px;
+  padding: 0;
+  text-align: left;
+  width: 220px;
+}
