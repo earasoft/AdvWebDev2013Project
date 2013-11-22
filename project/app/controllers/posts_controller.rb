@@ -55,14 +55,22 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find_by_unique_id(params[:id])
     if @post
-      @post
+      @post.destroy
+
+      respond_to do |format|
+        format.html { redirect_to posts_path }
+        msg = { :status => "ok", :message => "Success"}
+        format.json { render json: msg, :status => :ok }
+      end
     else
-      redirect_to root_path, :flash => { :notice => 'ERROR - Can not find the post' }
+      respond_to do |format|
+        format.html { redirect_to root_path, :flash => { :notice => 'ERROR - Can not find the post' }}
+        msg = { status: :unprocessable_entity, :message => "ERROR - Can not find the post"}
+        format.json { render json: msg, status: :unprocessable_entity}
+      end
     end
 
-    @post.destroy
 
-    redirect_to posts_path
   end
 
   private
