@@ -15,4 +15,13 @@
 //= require bootstrap
 //= require_tree .
 
-
+var ajax_alert = {
+    show: function(msg){
+        $('#ajax-alert').show();
+        $('#ajax-alert #message').html(msg);
+    },
+    hide: function(){
+        $('#ajax-alert').hide();
+        $('#ajax-alert #message').html("");
+    }
+};

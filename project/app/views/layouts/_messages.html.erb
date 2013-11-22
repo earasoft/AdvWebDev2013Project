@@ -1,3 +1,9 @@
+
+<div id="ajax-alert" class="alert" style="display: none;">
+  <a class="close" onclick="ajax_alert.hide()">&#215;</a>
+  <%= content_tag :div, "", :id => "message" %>
+</div>
+
 <% flash.each do |name, msg| %>
   <% if msg.is_a?(String) %>
     <div class="alert alert-<%= name == :notice ? "success" : "error" %>">

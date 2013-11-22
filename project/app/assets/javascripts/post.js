@@ -42,7 +42,15 @@ var posts_ajax = {
                  post_table.remove(unique_id);
              },
              error: function(e){
-                 alert(e.responseText);
+
+                 var msg;
+                 try{
+                     msg=JSON.parse(e.responseText).message
+                 }catch(ex){
+                   msg ="ERROR"
+                 };
+
+                 ajax_alert.show(msg);
              }
          });
      }
