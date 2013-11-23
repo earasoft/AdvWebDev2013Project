@@ -32,6 +32,20 @@ jQuery(document).ready(function() {
 });
 
 var posts_ajax = {
+     show: function(unique_id){
+         $.ajax({
+             type: "GET",
+             url: "/posts/"+unique_id,
+             dataType: "json",
+             success: function(e){
+                 console.log(e);
+             },
+             error: function(e){
+                 console.log(e);
+
+             }
+         });
+     },
      destroy : function(unique_id){
          $.ajax({
              type: "POST",
