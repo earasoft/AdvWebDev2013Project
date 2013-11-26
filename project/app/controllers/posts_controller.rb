@@ -17,7 +17,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find_by_unique_id(params[:id])
     if @post
-      respond_to do |format|
+     respond_to do |format|
         format.html { @post }
         msg = { :status => "ok", :message =>  @post , :comments => @post.comments }
         format.json { render json: msg, :status => :ok }
