@@ -1,0 +1,26 @@
+<h1>Badges</h1>
+
+<table class="table">
+  <tr>
+    <th>Category</th>
+    <th>Description</th>
+    <th>Title</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @badges.each do |badge| %>
+  <tr>
+    <td><%= badge.category %></td>
+    <td><%= badge.description %></td>
+    <td><%= badge.title %></td>
+    <td><%= link_to 'Edit', edit_badge_path(badge) %></td>
+    <td><%= link_to 'Delete', badge, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Badge', new_badge_path %>
