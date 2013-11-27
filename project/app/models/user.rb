@@ -77,9 +77,6 @@ class User < ActiveRecord::Base
     end
   end
 
-
-  private
-
   def generate_unique_id
     self.unique_id = SecureRandom.uuid # => "72569edd-1841-4fd9-af05-edf66a58b74b"
   end
