@@ -1,4 +1,7 @@
 Rails3BootstrapDeviseCancan::Application.routes.draw do
+  resources :badges
+
+
   authenticated :user do
     root :to => 'posts#index'
   end
@@ -9,7 +12,7 @@ Rails3BootstrapDeviseCancan::Application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks",
                                        :registrations => "users/registrations"}
 
-  resources :users, :posts, :badge_tiers do
+  resources :users, :posts do
     resources :comments
   end
 

@@ -1,3 +1,9 @@
+
+sudo apt-get install libmagickwand-dev
+sudo apt-get install imagemagick
+sudo gem install carrierwave
+sudo gem install mini_magick
+
 h1. First Steps
 
 You will have to run the following commands.
