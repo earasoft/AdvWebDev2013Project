@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_merit
+
   rolify
 
   after_create :generate_unique_id

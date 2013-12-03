@@ -11,14 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131120164141) do
-
-  create_table "badge_tiers", :force => true do |t|
-    t.string   "tier_name"
-    t.string   "tier_description"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
-  end
+ActiveRecord::Schema.define(:version => 20131203023516) do
 
   create_table "badges", :force => true do |t|
     t.string   "title"
@@ -27,6 +20,17 @@ ActiveRecord::Schema.define(:version => 20131120164141) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
+
+  create_table "badges_sashes", :force => true do |t|
+    t.integer  "badge_id"
+    t.integer  "sash_id"
+    t.boolean  "notified_user", :default => false
+    t.datetime "created_at"
+  end
+
+  add_index "badges_sashes", ["badge_id", "sash_id"], :name => "index_badges_sashes_on_badge_id_and_sash_id"
+  add_index "badges_sashes", ["badge_id"], :name => "index_badges_sashes_on_badge_id"
+  add_index "badges_sashes", ["sash_id"], :name => "index_badges_sashes_on_sash_id"
 
   create_table "comments", :force => true do |t|
     t.string   "commenter"
@@ -37,6 +41,38 @@ ActiveRecord::Schema.define(:version => 20131120164141) do
   end
 
   add_index "comments", ["post_id"], :name => "index_comments_on_post_id"
+
+  create_table "merit_actions", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "action_method"
+    t.integer  "action_value"
+    t.boolean  "had_errors",    :default => false
+    t.string   "target_model"
+    t.integer  "target_id"
+    t.boolean  "processed",     :default => false
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
+  end
+
+  create_table "merit_activity_logs", :force => true do |t|
+    t.integer  "action_id"
+    t.string   "related_change_type"
+    t.integer  "related_change_id"
+    t.string   "description"
+    t.datetime "created_at"
+  end
+
+  create_table "merit_score_points", :force => true do |t|
+    t.integer  "score_id"
+    t.integer  "num_points", :default => 0
+    t.string   "log"
+    t.datetime "created_at"
+  end
+
+  create_table "merit_scores", :force => true do |t|
+    t.integer "sash_id"
+    t.string  "category", :default => "default"
+  end
 
   create_table "posts", :force => true do |t|
     t.string   "title"
@@ -57,6 +93,11 @@ ActiveRecord::Schema.define(:version => 20131120164141) do
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
 
+  create_table "sashes", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
     t.string   "encrypted_password",     :default => "", :null => false
@@ -76,6 +117,8 @@ ActiveRecord::Schema.define(:version => 20131120164141) do
     t.string   "provider"
     t.string   "uid"
     t.string   "unique_id"
+    t.integer  "sash_id"
+    t.integer  "level",                  :default => 0
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
