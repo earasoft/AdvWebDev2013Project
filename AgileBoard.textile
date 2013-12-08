@@ -1,6 +1,6 @@
 ===============================================================================
 
-h1. *Story*: S1.Create Skeleton
+h1.*Story*: S1.Create Skeleton
 *ASSIGNEE*: Everyone
 
 Create project skeleton for lab 3.
