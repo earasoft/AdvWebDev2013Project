@@ -2,11 +2,15 @@
 
 *Story*: S1.Create Skeleton
 *ASSIGNEE*: Everyone
+*DUE DATE*: Sprint 1
 
 Create project skeleton for Project 3.
+
 As an <actor> I want <action> so that <achievement>
-Priority:          [  ]        Desired          [  ]  Mandatory
+
+Priority:[ ]Desired [ X ]Mandatory
 Week/Date implementation started:  
+
 *Tasks*
 T1.  Task1 (responsible person, complete date)
 T2.  Task2 (responsible party, complete date)
@@ -17,35 +21,48 @@ Write the *Test Case* which if successful implies that the *Story* is complete.
 ===============================================================================
 
 *Story*: S2.Create VM for Team
+*ASSIGNEE*: Everyone
+*DUE DATE*: Sprint 1
 
-===============================================================================
-
-*Story*: S3.Create User Accounts Skeleton
-*ASSIGNEE*: Manny Rivera
-*Due Date*: TBD
-The first feature we will have will be the ability for users to create user accounts. User accounts will be stored in a sqlite database and will include attributes such as username, encrypted password, reputation score, user bio, real name, age, city, and state. Users will have the ability to recover their password if they forget it.
 As an <actor> I want <action> so that <achievement>
 
-*Priority*:          [  ]        Desired          [ ]  Mandatory
+Priority:[ ]Desired [ X ]Mandatory
 Week/Date implementation started:  
 *Tasks*
-T1.  Create new user page (responsible person, complete date)
-T2.  Create edit user page (responsible party, complete date)
-T3.  Create
+T1. Create Ubuntu Virtual Machine with Project and 
+
 *Test Case*
 Write the *Test Case* which if successful implies that the *Story* is complete.
 
 ===============================================================================
 
-*Story*: S <4>. <Add more features to User Accounts Skeleton>
+*Story*: S3.Create User Accounts Skeleton
 *ASSIGNEE*: Manny Rivera
-Due Date: TBD
+*DUE DATE*: Sprint 1
+The first feature we will have will be the ability for users to create user accounts. User accounts will be stored in a sqlite database and will include attributes such as username, encrypted password, reputation score, user bio, real name, age, city, and state. Users will have the ability to recover their password if they forget it.
+As an <actor> I want <action> so that <achievement>
+
+*Priority* : [  ]Desired [ X ]Mandatory
+Week/Date implementation started: 
+ 
+*Tasks*
+T1.  Create new user page (responsible person, complete date)
+T2.  Create edit user page (responsible party, complete date)
+
+*Test Case*
+Write the *Test Case* which if successful implies that the *Story* is complete.
+
+===============================================================================
+
+*Story*: S4.Add more features to User Accounts Skeleton
+*ASSIGNEE*: Manny Rivera
+*DUE DATE*: Sprint 2
 
 The first feature we will have will be the ability for users to create user accounts. User accounts will be stored in a sqlite database and will include attributes such as username, encrypted password, reputation score, user bio, real name, age, city, and state. Users will have the ability to recover their password if they forget it. Users will also be able to upload a picture for their profile.
 
 As an <actor> I want <action> so that <achievement>
 
-Priority:          [  ]        Desired          [ ]  Mandatory
+*Priority* : [ X ]Desired [  ]Mandatory
 Week/Date implementation started: 
 
 *Tasks*
@@ -57,12 +74,14 @@ Write the *Test Case* which if successful implies that the *Story* is complete.
 
 ===============================================================================
 
-*Story*: S <5>. <Users Post Question>
+*Story*: S5.Users Post Question
 *ASSIGNEE*: Jeff Gutowski
+*DUE DATE*: Sprint 1
 Another feature our site will have will be the ability for users to post questions and answers to these questions. Users will also be able to post comments on questions. The questions will also be stored in a sqlite database. Some of the attributes for questions will include question text, date created, date closed, and answered.
+
 As an user I want to be able to post questions and comments so that  I can get feedback and help others on programming *Tasks*.  
 
-Priority:          [  ]        Desired          [x ]  Mandatory
+Priority: [ ] Desired    [ X ] Mandatory
 Week/Date implementation started:  
 
 *Tasks*
@@ -77,8 +96,9 @@ Write the *Test Case* which if successful implies that the *Story* is complete.
 
 ===============================================================================
 
-*Story*: S <6>. <Point System>
+*Story*: S6.Point System
 *ASSIGNEE*: Jane Valenti
+*DUE DATE*: Sprint ?
 
 A core feature of this site will be the point system. Each user will have a reputation score. Users will be able to earn points to help raise their score by performing various *Tasks*. If a user provides an answer to a question, and that question is accepted by the person who asked it, the person who answered it will receive points. Users who ask questions will also receive points if the questions they like get “upvoted” by other users who find these questions helpful. Questions that are not helpful can also be “downvoted” by users who have a high enough reputation score.
 
@@ -86,7 +106,7 @@ October 30, 2013: I have found a Ruby Gem called "Merit" that I am fairly certai
 
 As an <actor> I want <action> so that <achievement>
 
-Priority:          [  ]        Desired          [  ]  Mandatory
+*Priority* : [ X ]Desired [  ]Mandatory
 
 Week/Date implementation started:  
 
@@ -99,11 +119,14 @@ Write the *Test Case* which if successful implies that the *Story* is complete.
 
 ===============================================================================
 
-*Story*: S <7>. <Use of Tags>
-*ASSIGNEE*: 
+*Story*: S7.Use of Tags
+*ASSIGNEE*: ?
+*DUE DATE*: ?
 Another important feature will be the use of tags. Tags are essentially categories that users can mark their questions with. Questions should have at least one tag and at most five. Tags make it easier for users to browse through questions to answer. As users select more tags while browsing, the results shown to them will narrow accordingly. Tags will consist of at least a name, description, and potentially synonyms.
+
 As an <actor> I want <action> so that <achievement>
-Priority:          [  ]        Desired          [  ]  Mandatory
+
+*Priority* : [ X ]Desired [  ]Mandatory
 Week/Date implementation started:  
 
 *Tasks*
@@ -115,13 +138,14 @@ Write the *Test Case* which if successful implies that the *Story* is complete.
 
 ===============================================================================
 
-*Story*: S <8>. <Badges>
+*Story*: S8.Badges
 *ASSIGNEE*: Bruno
-Due Date: TDB
+*DUE DATE*: TDB
 Our application will also include the use of badges. Badges are achievements that users can earn for performing certain actions. For example, a badge can be awarded to a user if they leave ten comments. Badges will come in three tiers: bronze, silver, and gold. The difficulty of the task increases according to tier. Badges will also have categories such as Participation Badges and Question Badges. The main purpose of badges is to encourage users to become active on the site and to contribute consistently.
 
 As an <actor> I want <action> so that <achievement>
-Priority:          [  ]        Desired          [  ]  Mandatory
+
+*Priority* : [ X ]Desired [  ]Mandatory
 Week/Date implementation started:  
 
 *Tasks*
@@ -135,12 +159,15 @@ Write the *Test Case* which if successful implies that the *Story* is complete.
 
 *Story*: S9.Third Party Site Login
 *ASSIGNEE*:  Manny Rivera
-DUE DATE: October 15, 2013 (end of Sprint 1)
+*DUE DATE*: October 15, 2013 (end of Sprint 1)
 This task involves logging in to the site from a third party site or sites.  We will begin with Google, and if time permits, we will also include a login option with Yahoo (?) 
-Priority:          [ x ]        Desired          [  ]  Mandatory
+
+*Priority* : [ X ]Desired [  ]Mandatory
 Week/Date implementation started:  
+
 *Tasks*
 T1.  Added Google Authenication
+
 *Test Case*
 Able to log in using Google credentails
 
@@ -148,26 +175,27 @@ Able to log in using Google credentails
 
 *Story*: S10.Change Index Page
 *ASSIGNEE*: Jeff Gutowski
-DUE DATE: November 12, 2013 (end of Sprint 2)
+*DUE DATE*: November 12, 2013 (end of Sprint 2)
 This task involves changing the default index/home page to the posts page. 
-Priority:       [ x ] Desired           [ ] Mandatory
+
+Priority: [ X ] Desired    [  ] Mandatory
 Week/Date implementational started:
 
 *Tasks*
 T1. Reroute the posts page to be the index/homepage
+
 *Test Case*
 Make sure all links to the home page display the posts page.
 
 ===============================================================================
 
-*Story*: S<11> <Display Current Logged In User Name When Commenting>
+*Story*: S11.Display Current Logged In User Name When Commenting>
 *ASSIGNEE*: Jeff Gutowski
-DUE DATE: November 12, 2013 (end of Sprint 2)
+*DUE DATE*: November 12, 2013 (end of Sprint 2)
 
 This task involves displaying the user name of the current logged in user when making a comment on a post.  This will also allow someone to type in thier name if they do not have an account or are not logged in.  
 
-Priority:       [ x ] Desired           [ ] Mandatory 
-
+Priority: [ X ] Desired    [  ] Mandatory
 Week/Date Implementational Started:
 
 *Tasks*
@@ -182,11 +210,11 @@ Test to see if non-logged in user can type name in commenter section.
 
 *Story*: S12.Make comment text box wider
 *ASSIGNEE*: Jeff Gutowski
-DUE DATE: November 12, 2013
+*DUE DATE*: November 12, 2013
 
 This task involves expanding the current text field for commenting.
-Priority:       [ x ] Desired         [ ] Mandatory
 
+Priority: [ X ] Desired    [  ] Mandatory
 Week/Date Implementational Started:
 
 *Tasks*
