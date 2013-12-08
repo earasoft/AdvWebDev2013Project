@@ -1,9 +1,9 @@
 ===============================================================================
-h2. *Story*: S1.Create Skeleton
 
+*Story*: S1.Create Skeleton
 *ASSIGNEE*: Everyone
 
-Create project skeleton for lab 3.
+Create project skeleton for Project 3.
 As an <actor> I want <action> so that <achievement>
 Priority:          [  ]        Desired          [  ]  Mandatory
 Week/Date implementation started:  
