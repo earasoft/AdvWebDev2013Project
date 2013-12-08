@@ -1,5 +1,5 @@
-====
-*Story*: S1.Create Skeleton
+===============================================================================
+h1.*Story*: S1.Create Skeleton
 *ASSIGNEE*: Everyone
 
 Create project skeleton for lab 3.
@@ -12,9 +12,9 @@ T2.  Task2 (responsible party, complete date)
 
 *Test Case*
 Write the *Test Case* which if successful implies that the *Story* is complete.
-----
+===============================================================================
 *Story*: S2.Create VM for Team
-----
+===============================================================================
 *Story*: S3.Create User Accounts Skeleton
 *ASSIGNEE*: Manny Rivera
 *Due Date*: TBD
@@ -29,9 +29,7 @@ T2.  Create edit user page (responsible party, complete date)
 T3.  Create
 *Test Case*
 Write the *Test Case* which if successful implies that the *Story* is complete.
------
-
-----
+===============================================================================
 *Story*: S <4>. <Add more features to User Accounts Skeleton>
 *ASSIGNEE*: Manny Rivera
 Due Date: TBD
@@ -49,7 +47,7 @@ T2.  Task2 (responsible party, complete date)
 
 *Test Case*
 Write the *Test Case* which if successful implies that the *Story* is complete.
-----
+===============================================================================
 *Story*: S <5>. <Users Post Question>
 *ASSIGNEE*: Jeff Gutowski
 Another feature our site will have will be the ability for users to post questions and answers to these questions. Users will also be able to post comments on questions. The questions will also be stored in a sqlite database. Some of the attributes for questions will include question text, date created, date closed, and answered.
@@ -67,7 +65,7 @@ T5. Include features for questions like date created, answered and closed (Jeff 
 
 *Test Case*
 Write the *Test Case* which if successful implies that the *Story* is complete.
-----
+===============================================================================
 *Story*: S <6>. <Point System>
 *ASSIGNEE*: Jane Valenti
 
@@ -87,7 +85,7 @@ T2.  Task2 (responsible party, complete date)
 
 *Test Case*
 Write the *Test Case* which if successful implies that the *Story* is complete.
-----
+===============================================================================
 
 *Story*: S <7>. <Use of Tags>
 *ASSIGNEE*: 
@@ -102,7 +100,7 @@ T2.  Task2 (responsible party, complete date)
 
 *Test Case*
 Write the *Test Case* which if successful implies that the *Story* is complete.
-----
+===============================================================================
 *Story*: S <8>. <Badges>
 *ASSIGNEE*: Bruno
 Due Date: TDB
@@ -118,7 +116,7 @@ T2.  Task2 (responsible party, complete date)
 
 *Test Case*
 Write the *Test Case* which if successful implies that the *Story* is complete.
-----
+===============================================================================
 *Story*: S9.Third Party Site Login
 *ASSIGNEE*:  Manny Rivera
 DUE DATE: October 15, 2013 (end of Sprint 1)
@@ -129,7 +127,7 @@ Week/Date implementation started:
 T1.  Added Google Authenication
 *Test Case*
 Able to log in using Google credentails
--------
+===============================================================================
 *Story*: S10.Change Index Page
 *ASSIGNEE*: Jeff Gutowski
 DUE DATE: November 12, 2013 (end of Sprint 2)
@@ -141,7 +139,7 @@ Week/Date implementational started:
 T1. Reroute the posts page to be the index/homepage
 *Test Case*
 Make sure all links to the home page display the posts page.
-----
+===============================================================================
 *Story*: S<11> <Display Current Logged In User Name When Commenting>
 *ASSIGNEE*: Jeff Gutowski
 DUE DATE: November 12, 2013 (end of Sprint 2)
@@ -159,7 +157,7 @@ T2. Display current user name when commenting (Jeff Gutowski / Manny Rivera)
 *Test Case*
 Test to see if user name is displayed when logged in and commenting.
 Test to see if non-logged in user can type name in commenter section.
-----
+===============================================================================
 *Story*: S12.Make comment text box wider
 *ASSIGNEE*: Jeff Gutowski
 DUE DATE: November 12, 2013
@@ -171,7 +169,6 @@ Week/Date Implementational Started:
 
 *Tasks*
 T1. Make text area for typing comments wider (Jeff Gutowski)
-
 
 *Test Case*
 Make sure text area is wider.
