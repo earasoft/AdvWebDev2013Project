@@ -1,5 +1,5 @@
 ===============================================================================
-h3.*Story*: S1.Create Skeleton
+h3. *Story*: S1.Create Skeleton
 
 *ASSIGNEE*: Everyone
 
