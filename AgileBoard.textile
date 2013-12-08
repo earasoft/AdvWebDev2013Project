@@ -1,4 +1,4 @@
-----
+====
 *Story*: S1.Create Skeleton
 *ASSIGNEE*: Everyone
 
@@ -82,15 +82,13 @@ Priority:          [  ]        Desired          [  ]  Mandatory
 Week/Date implementation started:  
 
 *Tasks*
-
 T1.  Task1 (responsible person, complete date)
-
 T2.  Task2 (responsible party, complete date)
 
 *Test Case*
-
 Write the *Test Case* which if successful implies that the *Story* is complete.
 ----
+
 *Story*: S <7>. <Use of Tags>
 *ASSIGNEE*: 
 Another important feature will be the use of tags. Tags are essentially categories that users can mark their questions with. Questions should have at least one tag and at most five. Tags make it easier for users to browse through questions to answer. As users select more tags while browsing, the results shown to them will narrow accordingly. Tags will consist of at least a name, description, and potentially synonyms.
