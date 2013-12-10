@@ -1,12 +1,8 @@
 class User < ActiveRecord::Base
   has_merit
-
   rolify
-
-  after_create :generate_unique_id
-
+  before_create :generate_unique_id
   set_primary_key :unique_id
-
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
